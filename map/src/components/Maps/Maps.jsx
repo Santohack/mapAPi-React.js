@@ -7,7 +7,7 @@ import Rating from "@material-ui/lab";
 import React from "react";
 import useStyles from "./styles";
 
-const Maps = ({ setCoordinates, setBounds, coordinates }) => {
+const Maps = ({ setCoordinates, setBounds, coordinates, places }) => {
   const classes = useStyles();
   const isMobile = useMediaQuery("(min-width:600px)");
   // const coordinates = { lat: 0, lng: 0 };
