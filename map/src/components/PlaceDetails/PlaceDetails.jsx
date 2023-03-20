@@ -11,12 +11,13 @@ import {
 
 import LocationOnIcon from "@material-ui/icons/LocationOn";
 import PhoneIcon from "@material-ui/icons/Phone";
-import { Rating } from "@material-ui/lab/Rating";
+import Rating from "@material-ui/lab/Rating";
 import React from "react";
 import useStyles from "./styles";
 
-const PlaceDetails = ({ places }) => {
+const PlaceDetails = ({ places,selected,refProps }) => {
   const classes = useStyles();
+  if(selected) refProps?.current?.scrollIntoView({behavior: "smooth", block:"start"})
   return (
     <Card elevation={6}>
       <CardMedia
@@ -33,10 +34,7 @@ const PlaceDetails = ({ places }) => {
           {places.name}
         </Typography>
         <Box display="flex" justifyContent="space-between">
-          <Typography variant="subtitle1">Price</Typography>
-          <Typography gutterBottom variant="subtitle1">
-            {places.price}
-          </Typography>
+          <Rating size="large" value={Number(places.rating)} readOnly />
         </Box>
         <Box display="flex" justifyContent="space-between">
           <Typography variant="subtitle1">Ranking</Typography>
